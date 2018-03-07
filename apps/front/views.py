@@ -95,7 +95,7 @@ def apost():
                 return restful.params_error(message="没有这个板块")
             post = PostModel(title=title, content=content)
             post.board = board
-            post.author = g
+            post.author = g.front_user
             db.session.add(post)
             db.session.commit()
             return restful.success()
